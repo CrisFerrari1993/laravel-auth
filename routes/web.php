@@ -15,7 +15,7 @@ use App\Http\Controllers\ProjectsController;
 |
 */
 
-Route::get('/', [ProjectsController :: class, 'welcome']) -> name('projects.welcome');
+Route::get('/', [ProjectsController :: class, 'index']) -> name('projects.welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
