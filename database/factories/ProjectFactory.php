@@ -23,7 +23,8 @@ class ProjectFactory extends Factory
         'data_fine' => fake() -> date(),
         'stato' => fake() -> randomElement(['In progettazione', 'Completato', 'In test', 'Da sviluppare']),
         'priorità' => fake() -> randomElement(['Alta', 'Bassa']),
-        'responsabile' => fake() -> name()
+        'responsabile' => fake() -> name(),
+        'IMG-Path' => fake() -> imageUrl(360, 360, 'Projects', true, 'project', true)
         ];
     }
 }
