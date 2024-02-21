@@ -18,7 +18,7 @@ use App\Http\Controllers\ProjectsController;
 Route::get('/', [ProjectsController::class, 'index'])->name('projects.welcome');
 
 // route for show method
-Route::get('/', [ProjectsController::class, 'show'])->name('projects.welcome');
+Route::get('/{id}', [ProjectsController::class, 'show'])->name('projects.welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
