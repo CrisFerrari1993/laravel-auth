@@ -429,6 +429,11 @@
         </div>
 
         <div>
+
+            <button>
+                <a href="{{route('projects.create')}}">Clicca qui per raggiungere la pagina create</a>
+            </button>
+
             <ul>
                 @foreach ($projects as $project)
 
