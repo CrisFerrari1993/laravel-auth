@@ -24,9 +24,11 @@ class ProjectsController extends Controller
 
     // }
 
-    // public function show($id)
-    // {
-    // }
+    public function show($id)
+    {
+        $projects = Project::find($id);
+        return view('pages.show', compact('projects'));
+    }
 
     // public function edit($id)
     // {
