@@ -426,6 +426,9 @@
 
         <h1>Show page</h1>
 
+        Project id:
+        {{ $project -> id }}
+        <br>
         {{ $project -> name }}
         <br>
         {{ $project -> descrizione }}
