@@ -36,7 +36,18 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newProject = new Project();
+
+        $newProject->name = $data['name'];
+        $newProject->descrizione = $data['description'];
+        $newProject->data_inizio = $data['data_inizio'];
+        $newProject->data_fine = $data['data_fine'];
+        $newProject->stato = $data['stato'];
+        $newProject->priorità = $data['priorità'];
+        $newProject->responsabile = $data['responsabile'];
+
     }
 
     /**
