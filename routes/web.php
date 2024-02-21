@@ -23,6 +23,9 @@ Route::get('/show{id}', [ProjectsController::class, 'show'])->name('projects.sho
 // route.create
 Route::get('/create', [ProjectsController::class, 'create'])->name('projects.create');
 
+// route.store
+Route::post('/', [ProjectsController::class, 'store'])->name('projects.store');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
