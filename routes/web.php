@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoggedController;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,9 @@ use App\Http\Controllers\ProjectsController;
 |
 */
 
-Route::get('/', [ProjectsController :: class, 'index']) -> name('projects.welcome');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -26,5 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/guest/index', [GuestController :: class, 'index'])
+    -> name('guest.index');
+
+Route::get('/logged/show/{id}', [LoggedController :: class, 'show'])
+    -> middleware('auth')
+    -> name('logged.show');
 
 require __DIR__.'/auth.php';

@@ -17,14 +17,10 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-        'name' => fake() -> mimeType(),
-        'descrizione' => fake() -> paragraph(),
-        'data_inizio' => fake() -> date(),
-        'data_fine' => fake() -> date(),
-        'stato' => fake() -> randomElement(['In progettazione', 'Completato', 'In test', 'Da sviluppare']),
-        'priorità' => fake() -> randomElement(['Alta', 'Bassa']),
-        'responsabile' => fake() -> name(),
-        'IMG-Path' => fake() -> imageUrl(360, 360, 'Projects', true, 'project', true)
+
+            "title" => str_replace(' ', '_', fake() -> words(3, true)),
+            "framework" => fake() -> randomElement(['Laravel', 'VUE', 'none']),
+            "description" => fake() -> text()
         ];
     }
 }
