@@ -434,6 +434,12 @@
 
                 <li>
                     {{$project -> name}}
+
+                    <!-- link show page -->
+                    <a href="{{ route('projects.show', $project -> id) }}">
+                        Clicca qui per vedere più dettagli
+                    </a>
+
                 </li>
 
                 @endforeach
