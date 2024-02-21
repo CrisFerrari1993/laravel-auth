@@ -17,14 +17,14 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-        'name' => fake() -> mimeType(),
-        'descrizione' => fake() -> paragraph(),
-        'data_inizio' => fake() -> date(),
-        'data_fine' => fake() -> date(),
-        'stato' => fake() -> randomElement(['In progettazione', 'Completato', 'In test', 'Da sviluppare']),
-        'priorità' => fake() -> randomElement(['Alta', 'Bassa']),
-        'responsabile' => fake() -> name(),
-        'IMG-Path' => fake() -> imageUrl(360, 360, 'Projects', true, 'project', true)
+            'name' => fake()->mimeType(),
+            'descrizione' => fake()->paragraph(),
+            'data_inizio' => fake()->date(),
+            'data_fine' => fake()->date(),
+            'stato' => fake()->randomElement(['In progettazione', 'Completato', 'In test', 'Da sviluppare']),
+            'priorità' => fake()->randomElement(['Alta', 'Bassa']),
+            'responsabile' => fake()->name(),
+            'img_path' => fake()->imageUrl(360, 360, 'Projects', true, 'project', true)
         ];
     }
 }

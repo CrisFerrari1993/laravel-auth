@@ -430,9 +430,11 @@
 
         <div>
 
+            @auth
             <button>
                 <a href="{{route('projects.create')}}">Clicca qui per raggiungere la pagina create</a>
             </button>
+            @endauth
 
             <ul>
                 @foreach ($projects as $project)
@@ -443,9 +445,12 @@
                     <br>
 
                     <!-- link show page -->
+                    @auth
                     <a href="{{ route('projects.show', $project -> id) }}">
                         Clicca qui per vedere più dettagli
                     </a>
+                    @endauth
+
 
                 </li>
 
