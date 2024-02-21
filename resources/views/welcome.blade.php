@@ -424,7 +424,22 @@
         </div>
         @endif
 
+        <div class="text-center mt-5">
+            <h1>Portfolio</h1>
+        </div>
 
+        <div>
+            <ul>
+                @foreach ($projects as $project)
+
+                <li>
+                    {{$project -> name}}
+                </li>
+
+                @endforeach
+            </ul>
+
+        </div>
 
     </div>
 
