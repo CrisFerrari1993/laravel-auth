@@ -47,6 +47,11 @@ class ProjectsController extends Controller
         $newProject->stato = $data['stato'];
         $newProject->priorità = $data['priorità'];
         $newProject->responsabile = $data['responsabile'];
+        $newProject->img_path = $data['img_path'];
+
+        $newProject->save();
+
+        return redirect()->route('projects.show', $newProject->id);
 
     }
 
