@@ -18,7 +18,11 @@ use App\Http\Controllers\ProjectsController;
 Route::get('/', [ProjectsController::class, 'index'])->name('projects.welcome');
 
 // route for show method
-Route::get('/{id}', [ProjectsController::class, 'show'])->name('projects.welcome');
+Route::get('/{id}', [ProjectsController::class, 'show'])->name('projects.show');
+
+// route for create method
+Route::get('/create', [ProjectsController::class, 'create'])->name('projects.create');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
