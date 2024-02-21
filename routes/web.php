@@ -15,7 +15,10 @@ use App\Http\Controllers\ProjectsController;
 |
 */
 
-Route::get('/', [ProjectsController :: class, 'index']) -> name('projects.welcome');
+Route::get('/', [ProjectsController::class, 'index'])->name('projects.welcome');
+
+// route.show
+Route::get('/show{id}', [ProjectsController::class, 'show'])->name('projects.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,4 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
