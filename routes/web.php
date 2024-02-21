@@ -20,6 +20,9 @@ Route::get('/', [ProjectsController::class, 'index'])->name('projects.welcome');
 // route.show
 Route::get('/show{id}', [ProjectsController::class, 'show'])->name('projects.show');
 
+// route.create
+Route::get('/create', [ProjectsController::class, 'create'])->name('projects.create');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
