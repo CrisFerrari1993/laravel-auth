@@ -25,7 +25,7 @@ Route::get('/dashboard', [ProjectsController :: class, 'index'])->middleware(['a
 Route::middleware('auth')->group(function () {
     Route::get('/show/create', [ProjectsController :: class, 'create']) -> name('projects.create');
     Route::get('/show/{id}/edit', [ProjectsController :: class, 'edit']) ->name('projects.edit');
-    Route::post('/show/{id}', [ProjectsController :: class, 'update']) ->name('projects.update');
+    Route::put('/show/{id}', [ProjectsController :: class, 'update']) ->name('projects.update');
     Route::post('/show', [ProjectsController :: class, 'store']) -> name('projects.store');
     Route::delete('/show/{id}', [ProjectsController :: class,  'destroy']) ->name('projects.destroy');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

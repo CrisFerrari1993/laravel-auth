@@ -27,7 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary m-2"><a class="text-light" href=""><i class="fa-solid fa-pen"></i></a></button>
+                        <button class="btn btn-primary m-2"><a class="text-light" href="{{route('projects.edit', $project->id)}}"><i class="fa-solid fa-pen"></i></a></button>
                     </div>
                     <div class="col">
                         <form 
