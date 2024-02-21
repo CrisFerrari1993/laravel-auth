@@ -17,23 +17,31 @@ use App\Http\Controllers\ProjectsController;
 
 Route::get('/', [ProjectsController::class, 'index'])->name('projects.welcome');
 
-// route.show
-Route::get('/show{id}', [ProjectsController::class, 'show'])->name('projects.show');
 
-// route.create
-Route::get('/create', [ProjectsController::class, 'create'])->name('projects.create');
-
-// route.store
-Route::post('/', [ProjectsController::class, 'store'])->name('projects.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    // PROFILE
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // PROJECTS
+    // route.create
+    Route::get('/create', [ProjectsController::class, 'create'])->name('projects.create');
+
+    // route.store
+    Route::post('/', [ProjectsController::class, 'store'])->name('projects.store');
+
+    // route.show
+    Route::get('/show{id}', [ProjectsController::class, 'show'])->name('projects.show');
+
+
+
 });
 
 require __DIR__ . '/auth.php';
