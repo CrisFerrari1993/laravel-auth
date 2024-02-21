@@ -14,6 +14,7 @@
                                 href=" {{ route('logged.show', $project->id) }} ">
                                 {{ $project->title }}
                             </a>
+                            <button class="btn btn-primary"><a class="text-light" href=""><i class="fa-solid fa-pen"></i></a></button>
                         </li>
                     @endforeach
                 </ul>
