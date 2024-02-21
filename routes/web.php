@@ -15,20 +15,23 @@ use App\Http\Controllers\ProjectsController;
 |
 */
 
-Route::get('/', [ProjectsController :: class, 'index']) -> name('projects.welcome');
+Route::get('/', [ProjectsController::class, 'index'])->name('projects.welcome');
 
- // route for show
- Route::get('/show{id}', [ProjectsController :: class, 'show']) -> name('projects.show');
+// route for show method
+Route::get('/', [ProjectsController::class, 'show'])->name('projects.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    // PROFILE
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy')
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 });
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
