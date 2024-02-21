@@ -12,6 +12,7 @@ class Project extends Model
     protected $fillable = [
         'title',
         'framework',
-        'description'
+        'description',
+        'IMG_path'
     ];
 }

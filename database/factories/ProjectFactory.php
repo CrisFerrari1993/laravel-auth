@@ -19,8 +19,9 @@ class ProjectFactory extends Factory
         return [
 
             "title" => str_replace(' ', '_', fake() -> words(3, true)),
-            "framework" => fake() -> randomElement(['Laravel', 'VUE', 'none']),
-            "description" => fake() -> text()
+            "framework" => fake() -> randomElement(['Laravel', 'VUE', 'React', 'Angular']),
+            "description" => fake() -> text(),
+            "IMG_path" => fake() -> imageUrl(640, 480, 'projects', true)
         ];
     }
 }

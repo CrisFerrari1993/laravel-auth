@@ -9,6 +9,7 @@
             </div>
 
             <div class="card-body">
+                <img src="{{$project ->IMG_path}}" alt="{{$project ->title}}">
                 <h4>Description:</h4>
                 <p>{{ $project->description }}</p>
             </div>
