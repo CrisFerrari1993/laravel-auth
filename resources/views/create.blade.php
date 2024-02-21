@@ -426,7 +426,7 @@
 
         <h1>Create new project</h1>
 
-        <form method="POST">
+        <form action="{{ route('projects.store') }}" method="POST">
 
             @csrf
             @method('POST')
@@ -459,6 +459,9 @@
             <br>
             <label for="responsabile">Responsabile</label>
             <input type="text" name="responsabile" id="responsabile">
+            <br>
+            <label for="img_path">IMG-Path</label>
+            <input type="text" name="img_path" id="img_path">
             <br>
             <input type="submit" value="CREATE">
         </form>
