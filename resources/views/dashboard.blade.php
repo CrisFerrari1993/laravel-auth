@@ -1,26 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2 class="fs-4 text-secondary my-4">
-        {{ __('Dashboard') }}
-    </h2>
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+<div class="container mt-3 d-flex justify-content-center">
+    <button class="btn btn-primary"><a class="text-light" href="{{route('projects.create')}}">Create new project</a></button>
+</div>
+<div class="container d-flex justify-content-center my-5">
+    <div class="row">
+        @foreach ($projects as $project)
+            <div class="col-sm-12 col-md-12 col-xl-4">
+                <a href="{{route('logged.show', $project->id)}}">
+                    <div class="container">
+                        <img style="max-width: 100%" src="{{$project->IMG_path}}" alt="{{$project->title}}">
+                        <h2 class="text-center">{{$project->title}}</h2>
+                        <span>Framework: {{$project->framework}}</span>
+                        <p class="my-3">Description: {{$project->description}}</p>
                     </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                </a>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary m-2"><a class="text-light" href="{{route('projects.edit', $project->id)}}"><i class="fa-solid fa-pen"></i></a></button>
+                        <form 
+                        action="{{route('projects.destroy', $project ->id)}}"
+                        method="POST">
+                        @csrf
+                        @method('DELETE')
+                            <input class="btn btn-danger m-2" onclick="return confirm('Confermare?')" type="submit" value="Delete">
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

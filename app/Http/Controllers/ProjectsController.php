@@ -15,7 +15,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project :: all();
-        return view('welcome', compact('projects'));
+        return view('dashboard', compact('projects'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('logged.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request -> all();
+
+        $newProject = new Project();
+     
+        $newProject -> title = $data['title'];
+        $newProject -> framework = $data['framework'];
+        $newProject -> description = $data['description'];
+        $newProject -> IMG_path = $data['IMG_path'];
+
+        $newProject -> save();
+
+        return redirect() -> route('logged.show', $newProject -> id);
     }
 
     /**
@@ -58,7 +69,8 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $projects = Project :: find($id);
+        return view('logged.edit', compact('projects'));
     }
 
     /**
@@ -70,7 +82,18 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $projects = Project :: find($id);
+        $data = $request -> all();
+
+
+        $projects -> title = $data['title'];
+        $projects -> framework = $data['framework'];
+        $projects -> description = $data['description'];
+        $projects -> IMG_path = $data['IMG_path'];
+        
+        $projects -> save();
+
+        return redirect() ->route('logged.show', $projects -> id);
     }
 
     /**
@@ -81,6 +104,8 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $projects = Project :: find($id);
+        $projects -> delete();
+        return redirect() -> route('dashboard');
     }
 }

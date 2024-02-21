@@ -20,11 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProjectsController :: class, 'index'])->name('projects.welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [ProjectsController :: class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/show/create', [ProjectsController :: class, 'create']) -> name('projects.create');
+    Route::get('/show/{id}/edit', [ProjectsController :: class, 'edit']) ->name('projects.edit');
+    Route::post('/show/{id}', [ProjectsController :: class, 'update']) ->name('projects.update');
+    Route::post('/show', [ProjectsController :: class, 'store']) -> name('projects.store');
+    Route::delete('/show/{id}', [ProjectsController :: class,  'destroy']) ->name('projects.destroy');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
