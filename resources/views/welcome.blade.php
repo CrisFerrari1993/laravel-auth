@@ -433,7 +433,15 @@
                 @foreach ($projects as $project)
 
                 <li>
+
                     {{$project -> name}}
+                    <br>
+
+                    <!-- link show page -->
+                    <a href="{{ route('projects.show', $project -> id) }}">
+                        Clicca qui per vedere più dettagli
+                    </a>
+
                 </li>
 
                 @endforeach
