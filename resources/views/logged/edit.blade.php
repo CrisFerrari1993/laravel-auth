@@ -63,7 +63,7 @@
             <div class="card-footer ">
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary m-2"><a class="text-light" href=""><i class="fa-solid fa-pen"></i></a></button>
+                        <button class="btn btn-primary m-2"><a class="text-light" href="{{route('')}}"><i class="fa-solid fa-pen"></i></a></button>
                     </div>
                     <div class="col">
                         <form 
