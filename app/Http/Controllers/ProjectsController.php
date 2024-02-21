@@ -14,10 +14,10 @@ class ProjectsController extends Controller
         return view('welcome', compact('projects'));
     }
 
-    // public function create()
-    // {
-
-    // }
+    public function create()
+    {
+        return view('pages.create');
+    }
 
     // public function store(Request $request)
     // {
