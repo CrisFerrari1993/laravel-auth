@@ -426,6 +426,18 @@
 
         <h1>Show page</h1>
 
+        {{ $project -> name }}
+        <br>
+        {{ $project -> descrizione }}
+        <br>
+        {{ $project -> data_inizio }}
+        <br>
+        {{ $project -> data_fine }}
+        <br>
+        {{ $project -> stato }}
+        <br>
+        {{ $project -> priorità }}
+
 
 
     </div>
